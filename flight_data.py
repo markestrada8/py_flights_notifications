@@ -4,7 +4,7 @@ import requests
 
 class FlightData:
     # This class is responsible for structuring the flight data.
-    def __init__(self, location_codes):
+    def __init__(self, location_codes: dict):
         self.location_codes = location_codes
         self.flight_search_api_key = ''
 
@@ -25,7 +25,7 @@ class FlightData:
             'Content-Type': 'application/json'
         }
 
-    def get_flight_search_params(self, origin, destination):
+    def get_flight_search_params(self, origin: str, destination: str):
         return {
             'fly_from': origin,
             'fly_to': destination,

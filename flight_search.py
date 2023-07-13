@@ -1,16 +1,17 @@
 import requests
+from flight_data import FlightData
 
 
 class FlightSearch:
     # This class is responsible for talking to the Flight Search API.
-    def __init__(self, home_location, flight_data_object):
+    def __init__(self, home_location: str, flight_data_object: FlightData):
         self.flight_search_endpoint = 'https://api.tequila.kiwi.com/v2/search'
         self.locations_search_endpoint = 'https://api.tequila.kiwi.com/locations/query'
 
         self.flight_home_IATA = home_location
         self.flight_data_object = flight_data_object
 
-    def get_flights(self, data):
+    def get_flights(self, data: dict):
         # Takes data manager get_data as an argument
         # Returns dictionary of empty lists for no flights found or single dictionary of first lowest price flight
         alertable_flights = {}
